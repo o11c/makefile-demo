@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This is a minimal configure to demonstrate out-of-tree builds.
+
+if [ $# -ne 0 ]
+then
+    echo 'This is a minimal ./configure that takes no arguments, sorry' >&2
+    exit 1
+fi
+out_of_tree_dir="$(dirname "$0")"
+if [ "$out_of_tree_dir" = . ]
+then
+    echo 'In-tree build, doing nothing.' >&2
+else
+    echo 'Out-of-tree build, copying Makefile and copying modified config.make.' >&2
+    cp "$out_of_tree_dir"/Makefile .
+    sed '/^configure-dir *=/c'"configure-dir = $out_of_tree_dir" < "$out_of_tree_dir"/config.make > config.make
+fi
