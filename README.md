@@ -10,6 +10,6 @@ What is implemented:
 
 What is not implemented:
 * shared and static libraries - just need to change $(main-objects) logic
-* generated source files - needs to be handled carefully
+* generated source files - needs to be handled carefully - TODO integrate the [parser-demo project](https://github.com/o11c/parser-demo) which is currently using a manual makefile.
 * complicated cases of library dependencies
 * installation - needs more variables in config.make
